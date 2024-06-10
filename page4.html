@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Antonym and Synonym Finder</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="page1.html">Anagrams</a>
+        <a href="page2.html">Palindromes</a>
+        <a href="page3.html">Homophones</a>
+        <a href="page4.html">Antonyms and Synonyms</a>
+    </div>
+
+    
+    <div class="container">
+        <h1>Antonym and Synonym Finder</h1>
+        <form id="finderForm">
+            <input type="text" id="word" placeholder="Enter a word" required>
+            <button type="submit">Find Antonyms and Synonyms</button>
+        </form>
+        <h2>Antonyms:</h2>
+        <p id="antonyms"></p>
+        <h2>Synonyms:</h2>
+        <p id="synonyms"></p>
+    </div>
+
+    <script>
+        const antonyms = {
+            "happy": ["sad", "unhappy", "miserable", "depressed"],
+            "big": ["small", "tiny", "little", "mini"],
+            "fast": ["slow", "sluggish", "lethargic", "unhurried"],
+            // Add more antonyms as needed
+        };
+
+        const synonyms = {
+            "happy": ["content", "joyful", "cheerful", "merry"],
+            "big": ["large", "huge", "gigantic", "massive"],
+            "fast": ["quick", "rapid", "speedy", "swift"],
+            // Add more synonyms as needed
+        };
+
+        function findAntonyms(word) {
+            word = word.toLowerCase();
+            return antonyms[word] || ["No antonyms found"];
+        }
+
+        function findSynonyms(word) {
+            word = word.toLowerCase();
+            return synonyms[word] || ["No synonyms found"];
+        }
+
+        document.getElementById('finderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const word = document.getElementById('word').value;
+            const antonymResult = findAntonyms(word);
+            const synonymResult = findSynonyms(word);
+            document.getElementById('antonyms').textContent = antonymResult.join(", ");
+            document.getElementById('synonyms').textContent = synonymResult.join(", ");
+        });
+    </script>
+</body>
+</html>

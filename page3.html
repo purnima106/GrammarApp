@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All in one App</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+
+    <center>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="page1.html">Anagrams</a>
+            <a href="page2.html">Palindromes</a>
+            <a href="page3.html">Homophones</a>
+            <a href="page4.html">Antonyms and Synonyms</a>
+        </div>
+        <h1>Homophones Checker</h1>
+        <form onsubmit="check(event)">
+            <input type="text" placeholder="enter string" id="s1" />
+            <br><br>
+            <input type="text" placeholder="enter string" id="s2" />
+            <br><br>
+            <input type="submit" value="check" />
+            <br><br>
+            <h2 id="msg"></h2>
+        </form>
+        <script>
+            const homophones = {
+                "to": ["two", "too"],
+                "there": ["their"],
+                "bare": ["bear"],
+                "flower": ["flour"],
+                "our": ["hour"],
+            };
+
+            function check(event){
+                event.preventDefault();
+
+                let s1 = document.getElementById("s1").value.trim().toLowerCase();
+                let s2 = document.getElementById("s2").value.trim().toLowerCase();
+                let msg = document.getElementById("msg");
+
+                if (s1 === ""){
+                    alert("First string should not be empty");
+                    msg.innerHTML = "";
+                    document.getElementById("s1").focus();
+                    return;
+                }
+                if (s2 === ""){
+                    alert("Second string should not be empty");
+                    msg.innerHTML = "";
+                    document.getElementById("s2").focus();
+                    return;
+                }
+
+                let isHomophone = false;
+
+                for (const group in homophones) {
+                    if ((group === s1 && homophones[group].includes(s2)) || (group === s2 && homophones[group].includes(s1))) {
+                        isHomophone = true;
+                        break;
+                    }
+                    if (homophones[group].includes(s1) && homophones[group].includes(s2)) {
+                        isHomophone = true;
+                        break;
+                    }
+                }
+
+                if (isHomophone) {
+                    msg.innerHTML = "Yes, they are homophones";
+                } else {
+                    msg.innerHTML = "No, they are not homophones";
+                }
+            }
+        </script>
+    </center>
+</body>
+</html>

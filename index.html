@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Grammar Toolkit App</title>
+        <link rel="stylesheet" href="mystyle.css">
+    </head>
+    <body>
+        <center>
+            <div class = "nav">
+                <a href="index.html">Home</a>
+                <a href="page1.html">Anagrams</a>
+                <a href="page2.html">Palindromes</a>
+                <a href="page3.html">Homophones</a>
+                <a href="page4.html">Antonyms and Synonyms</a>
+            </div>
+            <h1>Grammar ToolKit App</h1>
+            <form onsubmit="check()">
+            <input type="text" placeholder="enter your name" id="name"/>
+            <br><br>
+            <input type="submit"/>
+            </form>
+            <h4 id="msg"></h4>
+            <script>
+            function check() {
+                event.preventDefault();
+                let name=document.getElementById("name");
+                let msg = document.getElementById("msg");
+                 if (name.value == "")
+                 {
+                    alert("name is empty");
+                    msg.innerHTML="";
+                    name.focus();
+                    return;
+                 }
+
+                 if (name.value.trim() ==="")
+                 {
+                    alert("name should not have blank spaces");
+                    msg.innerHTML="";
+                    name.focus();
+                    return;
+                 }
+
+                 if (! name.value.match(/^[A-Za-z ]+$/))
+                 {
+                    alert("name should only consists alphabets");
+                    msg.innerHTML="";
+                    name.value="";
+                    name.focus();
+                    return;
+                 }
+
+                 let d = new Date();
+                 let hr = d.getHours();
+                 let ans = "";
+                 if (hr<12)         ans= "Good Morning  " + name.value + " !  Welcome to The Grammar App ";
+                 else if(hr<16)     ans = "Good Afternoon  " + name.value + " !  Welcome to The Grammar App ";
+                 else               ans = "Good Evening  " + name.value + " !  Welcome to The Grammar App ";
+                 msg.innerHTML = ans;
+                }
+            </script>
+
+         </center> 
+    </body>
+</html>

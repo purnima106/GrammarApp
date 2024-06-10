@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>All in one App</title>
+        <link rel="stylesheet" href="mystyle.css">
+       
+    </head>
+    <body>
+        <center>
+            <div class = "nav">
+                <a href="index.html">Home</a>
+                <a href="page1.html">Anagrams</a>
+                <a href="page2.html">Palindromes</a>
+                <a href="page3.html">Homophones</a>
+                <a href="page4.html">Antonyms and Synonyms</a>
+            </div>
+            <h1>Anagram Checker</h1>
+            <form onsubmit="check()">
+                <input type="text" placeholder="enter string" id="s1" />
+                <br><br>
+                <input type="text" placeholder="enter string" id="s2" />
+                <br><br>
+                <input type ="submit" value="check" />
+                <br><br>
+                <h2 id="msg"></h2>
+            </form>
+            
+            <script>
+                function check(){
+                    event.preventDefault();
+                    let s1 = document.getElementById("s1");
+                    let s2 = document.getElementById("s2");
+                    let msg = document.getElementById("msg");
+
+                    if (s1.value.trim() ==="")
+                    {
+                        alert("string should not be empty");
+                        msg.innerHTML="";
+                        s1.focus();
+                        return;
+                    }
+                    if (s2.value.trim() ==="")
+                    {
+                        alert("string should not be empty");
+                        msg.innerHTML="";
+                        s2.focus();
+                        return;
+                    }
+
+                    let str1 = s1.value.toUpperCase();
+                    let str2 = s2.value.toUpperCase();
+
+                    let rs1 = str1.split("").sort().join("");
+                    let rs2 = str2.split("").sort().join("");
+
+                    if (rs1 === rs2){
+                            msg.innerHTML="Yes, it is a Anagram";
+                    }else{    
+                            msg.innerHTML="No not a Anagram";
+                }
+            }
+            </script>
+        </center>
+    </body>
+</html>

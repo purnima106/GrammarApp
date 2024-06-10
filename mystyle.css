@@ -1,0 +1,69 @@
+* {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    background-image: url('https://img.freepik.com/free-photo/flat-lay-desktop-concept-with-copy-space_23-2148226868.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: lightcoral; */
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    background-color: black;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    margin: 20px;
+}
+
+.nav a {
+    color: beige;
+    text-decoration: none;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+    background-color: beige;
+    color: black;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+input, button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+h2 {
+    border: solid;
+    border-width: 2px;
+    width: auto;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+h3 {
+    font-size: 20px;
+}
+

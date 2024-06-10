@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>All in one App</title>
+        <link rel="stylesheet" href="mystyle.css">
+        <style>
+            body{
+                background-color: lightskyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div class = "nav">
+                <a href="index.html">Home</a>
+                <a href="page1.html">Anagrams</a>
+                <a href="page2.html">Palindromes</a>
+                <a href="page3.html">Homophones</a>
+                <a href="page4.html">Antonyms and Synonyms</a>
+            </div>
+            <h1>Palindrome Checker</h1>
+            <form onsubmit="check()">
+                <input type="text" placeholder="enter string" id="str" />
+                <br><br>
+                <input type ="submit" value="check" />
+                <br><br>
+                <h2 id="msg"></h2>
+            </form>
+            <script>
+                function check(){
+                    event.preventDefault();
+                    let str = document.getElementById("str");
+                    let msg = document.getElementById("msg");
+
+                    if (str.value.trim() ==="")
+                    {
+                        alert("string should not be empty");
+                        msg.innerHTML="";
+                        str.focus();
+                        return;
+                    }
+                    let s = str.value;
+                    let rs = s.split("").reverse().join("");
+
+                    if (s === rs){
+                            msg.innerHTML="Yes, it is a Palindrome";
+                    }else{    
+                            msg.innerHTML="No not a Palindrome";
+                }
+            }
+            </script>
+        </center>
+    </body>
+</html>
