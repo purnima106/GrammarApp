@@ -1,5 +1,5 @@
 * {
-    font-size: 20px;
+    font-size: 20vw;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 36vw;
     margin-bottom: 20px;
 }
 
@@ -66,5 +66,5 @@ h2 {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 20vw;
 }
